@@ -742,12 +742,9 @@
   // propaga UTM pros links da Salvy
   (function(){ try { var params=new URLSearchParams(window.location.search); var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term']; var pairs=[]; keys.forEach(function(k){var v=params.get(k); if(v) pairs.push([k,v]);}); if(!pairs.length) return; document.querySelectorAll('a[href^="https://salvy.com.br"], a[href^="https://app.salvy.com.br"]').forEach(function(link){ try{ var u=new URL(link.getAttribute('href'), window.location.href); pairs.forEach(function(p){ if(!u.searchParams.has(p[0])) u.searchParams.set(p[0],p[1]); }); link.setAttribute('href', u.toString()); }catch(e){} }); } catch(e){} })();
 
-  // ⚠️ ATENÇÃO: este material precisa de um destino PRÓPRIO pra não misturar
-  // os leads com os do guia de IA. Ainda não temos esse endpoint configurado —
-  // por isso o envio está desligado por enquanto. Assim que tivermos a
-  // planilha/fluxo específico deste playbook, cole a URL abaixo e o envio
-  // volta a funcionar automaticamente (a lógica de unlock não depende disso).
-  var GOOGLE_SHEETS_ENDPOINT = ''; // <- colar aqui o endpoint específico deste material quando estiver pronto
+  // Envio pra planilha própria deste material (Leads - Guia Boas Práticas WhatsApp),
+  // separada da planilha do guia de IA.
+  var GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxA2Lq-TzWEPEy_GHqjzMUcet6mX896Vl-zan_nZ6Q52qHhVry3z1-5EmrXi70uRUBJ_A/exec';
   var gateForm = document.getElementById('customGateForm');
   if (gateForm) {
     gateForm.addEventListener('submit', function(e){
