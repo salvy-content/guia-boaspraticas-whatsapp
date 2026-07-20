@@ -262,6 +262,19 @@
   .fc-sources { margin-top: 46px; padding-top: 24px; border-top: 1px solid var(--gray-3); font-size: 12.5px; color: var(--muted-2); }
   .fc-sources b { color: var(--ink-2); font-weight: 600; }
 
+  /* ── FOOTER ── */
+  .pb-footer { background: var(--gray-1); border-top: 1px solid var(--gray-2); padding: 22px 48px; }
+  @media (max-width: 768px) { .pb-footer { padding: 20px 20px; } }
+  .pb-footer-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .pb-footer-logo { display: inline-flex; align-items: center; }
+  .pb-footer-logo svg { height: 20px; width: auto; fill: var(--ink); }
+  .pb-footer-logo .pb-footer-dot { fill: var(--wa-deep); }
+  .pb-footer-copy { font-size: 13px; color: var(--muted-2); letter-spacing: -0.01em; text-align: center; flex: 1; }
+  @media (max-width: 768px) { .pb-footer-copy { order: 3; flex-basis: 100%; text-align: center; } }
+  .pb-footer-links { display: flex; align-items: center; gap: 24px; }
+  .pb-footer-links a { font-size: 13.5px; color: var(--ink-2); text-decoration: none; font-weight: 500; letter-spacing: -0.01em; }
+  .pb-footer-links a:hover { color: var(--wa-deep); }
+
   /* reveal motion */
   .reveal { opacity: 0; transform: translateY(28px); filter: blur(4px); transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1), filter 0.8s cubic-bezier(.22,.61,.36,1); }
   .reveal.in { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -677,6 +690,27 @@
     <div class="fc-sources">Guia baseado nos termos de serviço e nas diretrizes de mensagens do WhatsApp Business.</div>
   </div>
 </section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="pb-footer">
+  <div class="pb-footer-inner">
+    <span class="pb-footer-logo" aria-label="Salvy">
+      <svg viewBox="0 0 969.28 550.7" xmlns="http://www.w3.org/2000/svg">
+        <path d="M861.59,315.57h0c-3.38-15.01-18.65-24.1-33.48-19.99-3.5.97-6.95,1.97-10.35,2.99-.82-4.44-1.72-8.94-2.69-13.5-13.41-63.04-38.74-123.01-45.16-137.69-.91-2.09-2.96-3.43-5.24-3.44-11.63-.03-46.49.03-46.49.03-1.94,0-3.51,1.58-3.52,3.52-.49,98.95-21.59,143.51-36.62,143.51-9.94,0-24.06-23.09-31.59-73.79-3.9-26.22-4.91-51.85-5.02-69.76-.01-1.94-1.59-3.48-3.52-3.48h-50.26c0,19.79.97,49.93,5.61,81.15,4.69,31.57,12.13,57.17,22.12,76.11,18.99,35.99,44.55,43.55,62.66,43.55,25.34,0,59.14-13.77,77.06-78.8,2.67,9.79,5.18,19.94,7.37,30.27,1.47,6.91,2.84,14.07,4.03,21.36-22.44,10.27-41.48,22.06-56.96,35.32-27.85,23.84-44.41,52.1-49.24,83.99-4,26.45,7.44,51.9,29.88,66.42,11.31,7.32,24,10.97,36.7,10.97,12.7,0,25.41-3.66,36.75-10.97,32.58-20.99,52.37-54.77,58.83-100.38,2.17-15.37,2.81-32.14,1.91-50.2,5.79-1.87,11.8-3.66,18.02-5.38,13.88-3.83,22.37-17.79,19.21-31.84ZM734.49,458.17c-6.87,4.43-12.86,1.51-15.11.05-2.7-1.74-7.05-5.78-5.92-13.23,4.1-27.09,23.62-50.52,57.43-69.53-1.11,34.64-10.58,66.07-36.39,82.71Z"/>
+        <path d="M512.05,344.86c-7.32,0-14.6-2.97-19.89-8.79-47.09-51.74-73.38-118.54-74.25-188.46-.02-1.96,1.58-3.56,3.54-3.56h46.73c1.93,0,3.48,1.55,3.51,3.48.68,45.78,14.79,89.89,40.36,127.23,15.42-22.54,26.82-47.72,33.46-74.15,4.33-17.27,6.66-35.11,6.93-53.09.03-1.93,1.58-3.48,3.51-3.48h50.29c0,23.56-2.88,46.99-8.57,69.65-11.36,45.26-34.03,87.52-65.57,122.22-.78.86-1.61,1.66-2.49,2.41l-.16.13c-5.05,4.29-11.24,6.39-17.4,6.39Z"/>
+        <circle class="pb-footer-dot" cx="906.83" cy="302.62" r="26.52"/>
+        <path d="M382.1,147.02c.15-21.03,2.39-42,6.72-62.38,1.99-9.35,4.43-18.69,7.29-27.84,1.01-3.22-.79-6.66-3.99-7.73l-37-12.38c-3.29-1.1-6.88.68-7.92,3.99-3.44,10.92-6.38,22.08-8.75,33.25-4.86,22.89-7.46,46.42-7.8,70.01h-.07c0,1.02.02,2.04.03,3.06,0,.74-.03,1.48-.03,2.23h.05c1.04,73.26,23.76,143.12,65.93,202.75,2,2.83,5.97,3.44,8.77,1.39l31.46-23.07c2.76-2.02,3.35-5.88,1.38-8.68-36.13-51.36-55.46-111.54-56.06-174.62Z"/>
+        <path d="M108.52,208.45c-14.88-9.24-19.88-19.7-18.22-25.52,1.63-5.74,11.61-11.91,29.64-11.91h25.08c3.13,0,5.66-2.53,5.66-5.66v-42.73c0-3.13-2.53-5.66-5.66-5.66h-25.08c-49.43,0-74.58,26.42-81.62,51.14-8.89,31.17,7.48,65.03,41.7,86.27,14.71,9.13,20.67,20,18.96,26.02-1.57,5.5-11.73,11.41-30.33,11.41h-27.06c-3.13,0-5.66,2.53-5.66,5.66v42.73c0,3.13,2.53,5.66,5.66,5.66h27.06c32.81,0,71.66-13.3,82.31-50.65,8.89-31.19-7.77-65.25-42.44-86.76Z"/>
+        <path d="M231.46,141.42h-29.52c-3.87,0-7.01,3.14-7.01,7.01v40.03c0,3.87,3.14,7.01,7.01,7.01h29.52c9.47,0,18.08,3.65,24.59,9.57h-16.65c-38.5,0-69.89,30.94-70.49,69.2-.62,39.38,32.51,71.62,71.9,71.62h10.8c38.87,0,70.5-31.55,70.5-70.32v-43.47c0-50.06-40.59-90.65-90.65-90.65ZM251.61,291.81h-12.22c-9.07,0-16.44-7.38-16.44-16.44s7.38-16.27,16.44-16.27h28.66v16.44c0,8.97-7.38,16.27-16.44,16.27Z"/>
+      </svg>
+    </span>
+    <span class="pb-footer-copy">© 2026 Salvy · Telefonia corporativa sem burocracia e sem fidelidade</span>
+    <div class="pb-footer-links">
+      <a href="https://salvy.com.br" target="_blank" rel="noopener">salvy.com.br</a>
+      <a href="https://app.salvy.com.br/sign-up" target="_blank" rel="noopener">Criar conta</a>
+    </div>
+  </div>
+</footer>
 
 <script>
   // Dropdown customizado de "Tamanho da empresa" (mesmo do material de IA — evita bug de <select> em iframe)
