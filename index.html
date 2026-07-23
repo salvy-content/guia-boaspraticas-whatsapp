@@ -756,6 +756,29 @@
     if (event.data.eventName === 'onFormSubmitted' || event.data.eventName === 'onFormSubmit') unlockContent();
   });
 
+  // Avisa a página de fora (Framer) a altura real do conteúdo, pra ela redimensionar
+  // o iframe dinamicamente. Sem isso, o iframe fica com altura fixa/menor que o
+  // conteúdo e gera scroll duplo (barra do iframe + barra da página). Precisa de um
+  // Custom Code correspondente no Framer escutando essa mensagem (ver anotação).
+  (function () {
+    var lastHeight = 0;
+    function reportHeight() {
+      var h = document.documentElement.scrollHeight;
+      if (h === lastHeight) return;
+      lastHeight = h;
+      try { window.parent.postMessage({ type: 'salvyResize', slug: 'guia-boaspraticas-whatsapp', height: h }, '*'); } catch (e) {}
+    }
+    reportHeight();
+    window.addEventListener('load', reportHeight);
+    window.addEventListener('resize', reportHeight);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(reportHeight);
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(reportHeight).observe(document.body);
+    } else {
+      setInterval(reportHeight, 500);
+    }
+  })();
+
   // e-mail corporativo obrigatório
   var FREE_EMAIL_DOMAINS = ['gmail.com','googlemail.com','hotmail.com','hotmail.com.br','outlook.com','outlook.com.br','live.com','live.com.br','yahoo.com','yahoo.com.br','icloud.com','me.com','aol.com','msn.com','bol.com.br','uol.com.br','ig.com.br','terra.com.br','zipmail.com.br','protonmail.com','gmx.com','r7.com'];
   function isFreeEmail(email){ var p=email.toLowerCase().split('@'); if(p.length!==2) return false; return FREE_EMAIL_DOMAINS.indexOf(p[1].trim())!==-1; }
